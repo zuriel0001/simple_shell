@@ -78,4 +78,10 @@ int pop_env_list(info_t *info);
 int set_my_env_var(info_t *info);
 int unset_my_env_var(info_t *info);
 
+/* string */
+char *_strcat(char *dest, char *src);
+int _strlen(char *s);
+int _strcmp(char *s1, char *s2);
+char *start_hays_need(const char *haystack, const char *needle);
+
 #endif
