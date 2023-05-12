@@ -26,7 +26,7 @@ char *get_env_var(info_t *info, const char *name)
 
 	while (node)
 	{
-		k = starts_with(node->str, name);
+		k = start_hays_need(node->str, name);
 		if (k && *k)
 			return (k);
 		node = node->next;
