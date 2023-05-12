@@ -68,7 +68,7 @@ typedef struct pass_info
 	int cmd_buf_type;
 	int readfd;
 	int histcount;
-} info_t;
+} shell_info;
 
 
 /* buit_in_env */
@@ -83,5 +83,18 @@ char *_strcat(char *dest, char *src);
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
 char *start_hays_need(const char *haystack, const char *needle);
+
+/** exit built-in, that exits the shell **/
+int exit_shell(shell_info *info);
+
+
+/** error printers **/
+void puts_error(char *str);
+int putchar_error(char c);
+int atoi_overflow(char *s);
+void print_error(shell_info*, char *);
+
+
+
 
 #endif
