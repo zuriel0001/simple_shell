@@ -104,7 +104,8 @@ int putchar_error(char c);
 int atoi_overflow(char *s);
 void print_error(shell_info*, char *);
 
-
+/* utilities **/
+int _atoi(char *s);
 
 
 #endif
