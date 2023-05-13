@@ -6,7 +6,7 @@
  *
  * Return: 0
  */
-int built_in_env(info_t *info)
+int built_in_env(shell_info *info)
 {
 	print_list_string(info->env);
 	return (0);
@@ -19,7 +19,7 @@ int built_in_env(info_t *info)
  *
  * Return: the value of env variable
  */
-char *get_env_var(info_t *info, const char *name)
+char *get_env_var(shell_info *info, const char *name)
 {
 	list_t *node = info->env;
 	char *k;
@@ -40,7 +40,7 @@ char *get_env_var(info_t *info, const char *name)
  *
  * Return: 0
  */
-int pop_env_list(info_t *info)
+int pop_env_list(shell_info *info)
 {
 	list_t *node = NULL;
 	size_t j = 0;
@@ -60,11 +60,11 @@ int pop_env_list(info_t *info)
  *
  * Return: 0
  */
-int set_my_env_var(info_t *info)
+int set_my_env_var(shell_info *info)
 {
 	if (info->argc != 3)
 	{
-		_eputs("incorrect number of arguments\n");
+		puts_error("incorrect number of arguments\n");
 		return (1);
 	}
 	if (set_environ(info, info->argv[1], info->argv[2]))
@@ -78,13 +78,13 @@ int set_my_env_var(info_t *info)
  *
  * Return: 0
  */
-int unset_my_env_var(info_t *info)
+int unset_my_env_var(shell_info *info)
 {
 	int i = 1;
 
 	if (info->argc == 1)
 	{
-		_eputs("Too few arguments.\n");
+		puts_error("Too few arguments.\n");
 		return (1);
 	}
 	while (i <= info->argc)
