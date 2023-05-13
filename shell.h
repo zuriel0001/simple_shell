@@ -1,5 +1,5 @@
-#ifndef _SHELL_H_
-#define _SHELL_H_
+#ifndef SHELL_H
+#define SHELL_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,6 +11,8 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <unistd.h>
+
+#define BUFFER_SIZE 1024
 
 extern char **environ;
 
@@ -72,20 +74,26 @@ typedef struct pass_info
 
 
 /* buit_in_env */
-int built_in_env(info_t *info);
-char *get_env_var(info_t *info, const char *name);
-int pop_env_list(info_t *info);
-int set_my_env_var(info_t *info);
-int unset_my_env_var(info_t *info);
+int built_in_env(shell_info *info);
+char *get_env_var(shell_info *info, const char *name);
+int pop_env_list(shell_info *info);
+int set_my_env_var(shell_info *info);
+int unset_my_env_var(shell_info *info);
+int set_environ(shell_info *info, char *var, char *value);
+
 
 /* string */
 char *_strcat(char *dest, char *src);
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
 char *start_hays_need(const char *haystack, const char *needle);
+int _putchar(char c);
 
 /** exit built-in, that exits the shell **/
 int exit_shell(shell_info *info);
+
+/** builtin command cd  **/
+int _cd(shell_info *info);
 
 
 /** error printers **/
