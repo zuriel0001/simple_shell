@@ -95,6 +95,8 @@ int exit_shell(shell_info *info);
 /** builtin command cd  **/
 int _cd(shell_info *info);
 
+/* commen remover */
+void erase_comments(char *buf);
 
 /** error printers **/
 void puts_error(char *str);
