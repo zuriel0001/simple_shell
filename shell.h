@@ -14,6 +14,7 @@
 
 #define BUFFER_SIZE 1024
 #define WRITE_BUF_SIZE 1024
+#define FLUSH_BUFFER -1
 
 
 extern char **environ;
@@ -108,6 +109,11 @@ void puts_error(char *str);
 int putchar_error(char c);
 int atoi_overflow(char *s);
 void print_error(shell_info*, char *);
+
+/** write to files */
+int print_dec(int input, int fd);
+
+
 
 /* utilities **/
 int _atoi(char *s);
