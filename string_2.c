@@ -84,6 +84,6 @@ int _putchar(char c)
 		j = 0;
 	}
 	if (c != FLUSH_BUFFER)
-		buf[i++] = c;
+		buf[j++] = c;
 	return (1);
 }
