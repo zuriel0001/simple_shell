@@ -15,6 +15,7 @@
 #define BUFFER_SIZE 1024
 #define WRITE_BUF_SIZE 1024
 #define FLUSH_BUFFER -1
+#define READ_BUF_SIZE 1024
 
 
 extern char **environ;
@@ -131,5 +132,8 @@ int interactive_mode(shell_info *info);
 /***** WRITERS ***/
 void _puts(char *);
 
+/* get line */
+ssize_t read_buffer(shell_info *info, char *buf, size_t *i);
+int get_line(shell_info *info, char **ptr, size_t *len);
 
 #endif
