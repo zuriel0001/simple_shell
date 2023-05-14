@@ -40,3 +40,50 @@ void _puts(char *str)
 		i++;
 	}
 }
+
+/**
+ * _strdup - a function that duplicates a string
+ * @str: string to be duplicated
+ *
+ * Return: apointer to the duplicted string
+ */
+char *_strdup(const char *str)
+{
+	int len = 0;
+	char *dup;
+
+	if (str == NULL)
+		return (NULL);
+	while (*str++)
+		len++;
+	dup = malloc(sizeof(char) * (len + 1));
+
+	if (dup == NULL)
+		return (NULL);
+	for (len++; len--;)
+	{
+		dup[len] = *--str;
+	}
+	return (dup);
+}
+
+/**
+ * _putchar - function tahat writes C character to stdout
+ * @c: character to print
+ *
+ * Return: 1 on success, -1 on error
+ */
+int _putchar(char c)
+{
+	static int j;
+	static char buf[WRITE_BUF_SIZE];
+
+	if (c == FLUSH_BUFFER || j >= WRITE_BUF_SIZE)
+	{
+		write(1, buf, j);
+		j = 0;
+	}
+	if (c != FLUSH_BUFFER)
+		buf[i++] = c;
+	return (1);
+}

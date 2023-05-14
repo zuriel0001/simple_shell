@@ -91,6 +91,9 @@ int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
 char *start_hays_need(const char *haystack, const char *needle);
 int _putchar(char c);
+char *_strdup(const char *str);
+void _puts(char *str);
+char *_strcpy(char *dest, char *src);
 
 /** exit built-in, that exits the shell **/
 int exit_shell(shell_info *info);
