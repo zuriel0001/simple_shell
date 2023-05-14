@@ -112,7 +112,8 @@ void print_error(shell_info*, char *);
 
 /** write to files */
 int print_dec(int input, int fd);
-
+int put_cfd(char c, int fd);
+int put_sfd(char *str, int fd)
 
 
 /* utilities **/
