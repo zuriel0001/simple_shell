@@ -16,6 +16,11 @@
 #define WRITE_BUF_SIZE 1024
 #define FLUSH_BUFFER -1
 
+/** number convert */
+#define CONVERT_TO_LOWERCASE	1
+#define CONVERT_TO_UNSIGNED	2
+
+
 
 extern char **environ;
 
@@ -114,23 +119,20 @@ int atoi_overflow(char *s);
 void print_error(shell_info*, char *);
 
 /** write to files */
-int print_dec(int input, int fd);
 int put_cfd(char c, int fd);
-int put_sfd(char *str, int fd)
-
+int put_sfd(char *str, int fd);
+int print_dec(int num, int fd);
 
 /* utilities **/
 int _atoi(char *s);
 int _isalpha(int c);
 int is_delim(char c, char *d_str);
-
+char *convert_num(long int num, int base, int flags);
 
 /* interactive mode */
 int interactive_mode(shell_info *info);
 
 
-/***** WRITERS ***/
-void _puts(char *);
 
 
 #endif
