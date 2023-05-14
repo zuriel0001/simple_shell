@@ -13,6 +13,8 @@
 #include <unistd.h>
 
 #define BUFFER_SIZE 1024
+#define WRITE_BUF_SIZE 1024
+
 
 extern char **environ;
 
@@ -95,6 +97,9 @@ int exit_shell(shell_info *info);
 /** builtin command cd  **/
 int _cd(shell_info *info);
 
+/** help menu **/
+int helper(shell_info *info);
+
 /* commen remover */
 void erase_comments(char *buf);
 
@@ -106,6 +111,16 @@ void print_error(shell_info*, char *);
 
 /* utilities **/
 int _atoi(char *s);
+int _isalpha(int c);
+int is_delim(char c, char *d_str);
+
+
+/* interactive mode */
+int interactive_mode(shell_info *info);
+
+
+/***** WRITERS ***/
+void _puts(char *);
 
 
 #endif
