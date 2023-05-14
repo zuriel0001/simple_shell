@@ -80,3 +80,62 @@ int is_delim(char c, char *d_str)
 	}
 	return (0);
 }
+
+
+/**
+ * convert_num - convert a number to a string representation in the given base
+ *
+ * @num: the number to convert
+ * @base: the base to use for the conversion (2-36)
+ * @flags: control the conversion (CONVERT_TO _UNSIGNED, CONVERT_TO_LOWERCASE)
+ *
+ * The function converts a number to a string representation in the given
+ * base.
+ * The result is stored in a static buffer array.
+ * If the number is negative and the CONVERT_TO_UNSIGNED flag
+ * is not set, a minus sign is added to the beginning of the string. If the
+ * CONVERT_TO_LOWERCASE flag is set, lowercase letters are used for
+ * hexadecimal digits.
+ *
+ * Return: buffer array and a pointer to the first element of the buffer array
+ */
+
+char *convert_num(long int num, int base, int flags)
+{
+	static char *arr;
+	static char buf[50];
+	char numSign = 0;
+	unsigned long n = num;
+	int i = 0;
+
+	if (!(flags & CONVERT_TO_UNSIGNED) && num < 0)
+	{
+		n = -num;
+		numSign = '-';
+
+	}
+	if (flags & CONVERT_TO_LOWERCASE)
+	{
+		arr = "0123456789abcdef";
+	}
+	else
+	{
+		arr = "0123456789ABCDEF";
+	}
+	*buf = '\0';
+
+	while (n != 0)
+	{
+		buf[i] = arr[n % base];
+		n /= base;
+		i++;
+	}
+
+	if (numSign)
+	{
+		buf[i] = numSign;
+	}
+	buf[i + 1] = '\0';
+	return (buf);
+}
+
