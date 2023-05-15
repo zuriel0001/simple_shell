@@ -145,4 +145,9 @@ ssize_t get_input(shell_info *info);
 ssize_t input_buffer(shell_info *info, char **buf, size_t *len);
 void sig_int_handler(__attribute__((unused))int sig);
 
+/*** get shell info ***/
+void clear_shell_info(shell_info *info);
+void free_shell_info(shell_info *info, int abc);
+void set_shell_info(shell_info *info, char **av);
+
 #endif
