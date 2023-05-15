@@ -17,6 +17,9 @@
 #define FLUSH_BUFFER -1
 #define READ_BUF_SIZE 1024
 
+/***** command chaining *****/
+#define CMD_NORMAL 0;
+
 /** number convert */
 #define CONVERT_TO_LOWERCASE	1
 #define CONVERT_TO_UNSIGNED	2
