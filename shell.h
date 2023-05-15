@@ -141,5 +141,8 @@ int interactive_mode(shell_info *info);
 /* get line */
 ssize_t read_buffer(shell_info *info, char *buf, size_t *i);
 int get_line(shell_info *info, char **ptr, size_t *len);
+ssize_t get_input(shell_info *info);
+ssize_t input_buffer(shell_info *info, char **buf, size_t *len);
+void sig_int_handler(__attribute__((unused))int sig);
 
 #endif
