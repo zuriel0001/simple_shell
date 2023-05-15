@@ -45,3 +45,15 @@ Before submitting a pull request, please make sure to run the test suite by typi
 The Simple Shell Project was created by Zuriel Victus Azameti and Chigozirim Uwaezuoke. Special thanks to our contributors for helping to improve the shell and add new features.
 
 License
+  
+**AUTHORS**
+  
+  To generate an author file, create a .sh file ans paste the script bwlow inside.
+  
+  git shortlog -se \
+  | perl -spe 's/^\s+\d+\s+//' \
+  | sed -e '/^CommitSyncScript.*$/d' \
+  > AUTHORS                                                                                                                              
+  Make sure the file has executable permissions (chmod +x generate_authors.sh). Then you can run the script by executing
+ ./generate_authors.sh in your shell. It will generate an "AUTHORS" file in the same directory with the filtered list of 
+ authors and their email addresses from the Git repository.
