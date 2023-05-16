@@ -12,6 +12,8 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+#define UNUSED(x) (void)(x);
+
 #define BUFFER_SIZE 1024
 #define WRITE_BUF_SIZE 1024
 #define FLUSH_BUFFER -1
@@ -162,4 +164,16 @@ void chain_chk(shell_info *info, char *buf, size_t *ptr, size_t j, size_t len);
 int substitute_vars(shell_info *info);
 int substitute_string(char **old, char *new);
 int substitute_alias(shell_info *info);
+
+
+/** path utils  **/
+int is_regular_file(shell_info *info, char *path);
+char *get_sgmnt_without_colon(const char *inputString, int start, int end);
+
+
+
+
+
+
+
 #endif
