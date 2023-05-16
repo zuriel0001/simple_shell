@@ -18,7 +18,11 @@
 #define READ_BUF_SIZE 1024
 
 /***** command chaining *****/
-#define CMD_NORMAL 0;
+#define CMD_NORMAL 0
+#define OR_CMD		1
+#define AND_CMD		2
+#define CHAIN_CMD	3
+
 
 /** number convert */
 #define CONVERT_TO_LOWERCASE	1
@@ -150,4 +154,12 @@ void clear_shell_info(shell_info *info);
 void free_shell_info(shell_info *info, int abc);
 void set_shell_info(shell_info *info, char **av);
 
+/** chain **/
+int is_chain(shell_info *info, char *buf, size_t *ptr);
+void chain_chk(shell_info *info, char *buf, size_t *ptr, size_t j, size_t len);
+
+/** substitute alias vars string **/
+int substitute_vars(shell_info *info);
+int substitute_string(char **old, char *new);
+int substitute_alias(shell_info *info);
 #endif
