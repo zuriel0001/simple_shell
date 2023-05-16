@@ -13,7 +13,7 @@
  * Return: Always returns 0.
  */
 
-int helper(shell_info *info)
+int helper(shell_info __attribute__((unused)) *info)
 {
 	_puts("Shell Commands:\n");
 	_puts("  help     - Display this help information.\n");
