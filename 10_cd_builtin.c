@@ -15,8 +15,10 @@ int _cd(shell_info *info)
 
 	str = getcwd(buff, 1024);
 	if (!str)
+	{
 		puts_error("TODO: >>getcwd failure emsg here<<\n");
 		return (1);
+	}
 	if (!info->argv[1])
 	{
 		direct = get_env_var(info, "HOME=");
@@ -43,12 +45,10 @@ int _cd(shell_info *info)
 		print_error(info, "can't cd to ");
 		puts_error(info->argv[1]), _putchar('\n');
 	}
-
 	else
 	{
 		set_environ(info, "OLDPWD", get_env_var(info, "PWD="));
-		set_environ(info, "PWD", getcwd(buff, 1024));
-	}
+		set_environ(info, "PWD", getcwd(buff, 1024)); }
 	return (0);
 }
 
