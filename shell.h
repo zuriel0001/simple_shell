@@ -170,7 +170,15 @@ int substitute_alias(shell_info *info);
 int is_regular_file(shell_info *info, char *path);
 char *get_sgmnt_without_colon(const char *inputString, int start, int end);
 
+/*** get environ ***/
+char **fetch_environ(shell_info *info);
+int set_environ(shell_info *info, char *var, char *val);
+int unset_environ(shell_info *info, char *var);
 
+/** lists **/
+list_t *add_node(list_t **head, const char *str, int num);
+list_t *add_node_end(list_t **head, const char *str, int num);
+int remove_node_at_idx(list_t **head, unsigned int index);
 
 
 
