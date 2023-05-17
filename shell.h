@@ -181,7 +181,10 @@ list_t *add_node(list_t **head, const char *str, int num);
 list_t *add_node_end(list_t **head, const char *str, int num);
 int remove_node_at_idx(list_t **head, unsigned int index);
 
-
+/*** exit_str ***/
+char *_strncpy(char *dest, char *src, int n);
+char *_strchr(char *s, char ch);
+char *_strncat(char *dest, char *src, int n);
 
 
 
