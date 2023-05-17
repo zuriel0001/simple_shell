@@ -116,3 +116,27 @@ list_t *add_node_end(list_t **head, const char *str, int num)
 		*head = new_n;
 	return (new_n);
 }
+
+/**
+ * fetch_node_idx -fetches the index of a node
+ * @head: pointer to thead head of the list
+ * @node: pointer to the node
+ *
+ * Return: the index of the node
+ */
+ssize_t fetch_node_idx(list_t *head, list_t 8node)
+{
+	size_t k = 0;
+
+	while (head)
+	{
+		if (head == node)
+			return (k);
+		head = head->next;
+		k++;
+	}
+	return (-1);
+}
+
+/**
+ * start

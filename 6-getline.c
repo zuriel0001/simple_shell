@@ -15,7 +15,7 @@ int get_line(shell_info *info, char **ptr, size_t *len)
 	static size_t i;
 	static size_t l;
 	size_t k;
-	size_t m;
+	ssize_t m;
 	size_t st = 0;
 	char *pointer = NULL;
 	char *new_pointer = NULL;
