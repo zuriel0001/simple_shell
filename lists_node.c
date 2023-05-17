@@ -139,4 +139,24 @@ ssize_t fetch_node_idx(list_t *head, list_t 8node)
 }
 
 /**
- * start
+ * start_node_with - retrieve the node that has a string
+ * starting with the given prefix
+ * @node: pointer to the head of the list
+ * @prefix: the string to match
+ * @c: the next charcter
+ *
+ * Return: the node or NULL
+ */
+list_t *start_node_with(list_t *node, char *prefix, char c)
+{
+	char *ptr = NULL;
+
+	while (node)
+	{
+		ptr = start_hays_need(node->str, prefix);
+		if (ptr && ((c == -1) || (*ptr == c)))
+			return (node);
+		node = node->next;
+	}
+	return (NULL);
+}
