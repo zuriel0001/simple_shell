@@ -169,6 +169,7 @@ int substitute_alias(shell_info *info);
 /** path utils  **/
 int is_regular_file(shell_info *info, char *path);
 char *get_sgmnt_without_colon(const char *inputString, int start, int end);
+char *path_finder(shell_info *info, char *inputString, char *cmd);
 
 /*** get environ ***/
 char **fetch_environ(shell_info *info);
