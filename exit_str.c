@@ -65,12 +65,11 @@ char *_strncat(char *dest, char *src, int n)
 		k++;
 	while (src[m] != '\0' && m < n)
 	{
-		dest[m] = src[m];
-		mk++;
-		m+=;
+		dest[k] = src[m];
+		k++;
+		m++;
 	}
 	if (m < n)
 		dest[k] = '\0';
 	return (p);
 }
-
