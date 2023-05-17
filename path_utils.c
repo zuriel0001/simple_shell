@@ -62,3 +62,56 @@ char *get_sgmnt_without_colon(const char *inputString, int start, int end)
 
 	return (buff);
 }
+
+/**
+ * path_finder - function that searches for a command in a colon-separated
+ * list of paths
+ *
+ * @info: pointer to struct shell_info
+ * @inputString: given path string
+ * @cmd: the cmd to find
+ *
+ * Return: full path of cmd if found or NULL
+ */
+
+char *path_finder(shell_info *info, char *inputString, char *cmd)
+{
+	int i = 0;
+	int curr_i = 0;
+	char *path;
+
+	if (inputString == NULL)
+		return (NULL);
+
+	if ((_strlen(cmd) > 2) && start_hays_need(cmd, "./"))
+	{
+		if (is_regular_file(info, cmd))
+			return (cmd);
+	}
+	while (1)
+	{
+		if (!inputString[i] || inputString[i] == ':')
+		{
+			path = get_sgmnt_without_colon(inputString, curr_i, i);
+
+			_strcat(path + !!*path * _strlen(path), !*path ?
+					cmd : _strcat(path + _strlen(path), cmd) + 1);
+			/**
+			*if (!*path)
+				_strcat(path, cmd);
+			else
+			{
+				_strcat(path, "/");
+				_strcat(path, cmd);
+			}
+			*/
+			if (is_regular_file(info, path))
+				return (path);
+			if (!inputString[i])
+				break;
+			curr_i = i;
+		}
+		i++;
+	}
+	return (NULL);
+}
