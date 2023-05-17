@@ -124,7 +124,7 @@ list_t *add_node_end(list_t **head, const char *str, int num)
  *
  * Return: the index of the node
  */
-ssize_t fetch_node_idx(list_t *head, list_t 8node)
+ssize_t fetch_node_idx(list_t *head, list_t *node)
 {
 	size_t k = 0;
 

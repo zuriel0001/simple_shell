@@ -180,6 +180,9 @@ int unset_environ(shell_info *info, char *var);
 list_t *add_node(list_t **head, const char *str, int num);
 list_t *add_node_end(list_t **head, const char *str, int num);
 int remove_node_at_idx(list_t **head, unsigned int index);
+ssize_t fetch_node_idx(list_t *head, list_t *node);
+list_t *start_node_with(list_t *node, char *prefix, char c);
+
 
 /*** exit_str ***/
 char *_strncpy(char *dest, char *src, int n);
