@@ -193,6 +193,8 @@ char *_strncat(char *dest, char *src, int n);
 size_t list_length(const list_t *head);
 char **list_str(list_t *h);
 size_t print_list(const list_t *h);
+size_t print_list_string(const list_t *head);
+void free_list(list_t **h_ptr);
 
 
 
