@@ -42,3 +42,24 @@ void *resize_mem(void *p_mem, unsigned int old_size, unsigned int new_size)
 	return (ptr);
 }
 
+/**
+ * my_memset - function that fill memory with  conctant byte
+ *
+ * @mem: pointer to memory to be filled
+ * @b: the constant byte
+ * @n_byte: the amount of bytes to be filled
+ *
+ * Return: pointer to the memory
+ */
+
+char *my_memset(char *mem, char b, unsigned int n_byte)
+{
+	char *p = mem;
+
+	while (n_byte--)
+
+		*p++ = b;
+
+	return (mem);
+}
+
