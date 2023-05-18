@@ -199,7 +199,7 @@ void free_list(list_t **h_ptr);
 /** memory utils **/
 void *resize_mem(void *p_mem, unsigned int old_size, unsigned int new_size);
 char *my_memset(char *mem, char b, unsigned int n_byte);
-
+void free_string_array(char **ptr);
 
 
 
