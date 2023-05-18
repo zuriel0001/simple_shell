@@ -83,3 +83,23 @@ size_t list_length(const list_t *head)
 	}
 	return (j);
 }
+
+/**
+ * print_list_string - function that prints only the string of linked list
+ * @head: pointer to the first node
+ *
+ * Return: the size of the list
+ */
+size_t print_list_string(const list_t *head)
+{
+	size_t j = 0;
+
+	while (head)
+	{
+		_puts(head->str ? head->str : "(nil)");
+		_puts("\n");
+		head = head->next;
+		j++;
+	}
+	return (j);
+}
