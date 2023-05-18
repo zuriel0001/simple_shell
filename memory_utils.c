@@ -63,3 +63,23 @@ char *my_memset(char *mem, char b, unsigned int n_byte)
 	return (mem);
 }
 
+/**
+ * free_string_array - deallocates the memory occupied by each string
+ * within a string array and then frees the array itself
+ *
+ *@ptr: a pointer to a pointer to char
+ */
+
+void free_string_array(char **ptr)
+{
+	char **arr = ptr;
+
+	if (!ptr)
+		return;
+
+	while (*ptr)
+	{
+		free(*ptr++);
+	}
+	free(arr);
+}
