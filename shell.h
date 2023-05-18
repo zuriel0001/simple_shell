@@ -196,6 +196,7 @@ size_t print_list(const list_t *h);
 size_t print_list_string(const list_t *head);
 void free_list(list_t **h_ptr);
 
-
+/** memory utils **/
+void *resize_mem(void *p_mem, unsigned int old_size, unsigned int new_size);
 
 #endif
