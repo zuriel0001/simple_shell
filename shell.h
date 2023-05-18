@@ -189,6 +189,11 @@ char *_strncpy(char *dest, char *src, int n);
 char *_strchr(char *s, char ch);
 char *_strncat(char *dest, char *src, int n);
 
+/** list_list **/
+size_t list_length(const list_t *head);
+char **list_str(list_t *h);
+size_t print_list(const list_t *h);
+
 
 
 #endif

@@ -64,3 +64,22 @@ char **list_str(list_t *h)
 	sss[i] = NULL;
 	return (sss);
 }
+
+/**
+ * list_length - function that gets the length of a linked
+ * list
+ * @head: pointer to the first node
+ *
+ * Return: the length of the list
+ */
+size_t list_length(const list_t *head)
+{
+	size_t j = 0;
+
+	while (head)
+	{
+		head = head->next;
+		j++;
+	}
+	return (j);
+}
