@@ -33,7 +33,7 @@ int get_line(shell_info *info, char **ptr, size_t *len)
 
 	c = _strchr(buf + i, '\n');
 	k = c ? 1 + (unsigned int)(c - buf) : l;
-	new_pointer = _realloc(pointer, st, st ? st + k : k + 1);
+	new_pointer = resize_mem(pointer, st, st ? st + k : k + 1);
 	if (!new_pointer)
 		return (pointer ? free(pointer), -1 : -1);
 
