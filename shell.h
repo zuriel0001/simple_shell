@@ -12,7 +12,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-#define UNUSED(x) (void)(x);
+#define UNUSED(x) (void)(x)
 
 #define BUFFER_SIZE 1024
 #define WRITE_BUF_SIZE 1024
@@ -51,6 +51,7 @@ typedef struct list_str
  * struct pass_info - struct that contains pseudo arguments to
  * to pass into a function
  * @arg: arguments
+ * argc: argument count
  * @argv: array of strings
  * @path: string path for current command to follow
  * @line_count: error count
@@ -67,6 +68,7 @@ typedef struct list_str
  * @cmd_buf_type: cmd buff type
  * @readfd: fd to read line input
  * @histcount: history count
+ *
  */
 typedef struct pass_info
 {
@@ -200,6 +202,9 @@ void free_list(list_t **h_ptr);
 void *resize_mem(void *p_mem, unsigned int old_size, unsigned int new_size);
 char *my_memset(char *mem, char b, unsigned int n_byte);
 void free_string_array(char **ptr);
+
+/** alias history biultin **/
+int show_history(shell_info *info);
 
 
 
