@@ -206,6 +206,7 @@ void free_string_array(char **ptr);
 /** alias history biultin **/
 int show_history(shell_info *info);
 
-
+/** history file **/
+int recode_history(shell_info *info);
 
 #endif
