@@ -38,10 +38,14 @@ char *_strncpy(char *dest, char *src, int n)
  */
 char *_strchr(char *s, char ch)
 {
-	do {
+	while (*s != '\0')
+	{
 		if (*s == ch)
+		{
 			return (s);
-	} while (*s++ != '\0');
+		}
+		s++;
+	}
 
 	return (NULL);
 }
