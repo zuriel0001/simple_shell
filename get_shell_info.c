@@ -50,7 +50,7 @@ void set_shell_info(shell_info *info, char **av)
  */
 void free_shell_info(shell_info *info, int abc)
 {
-	ffree(info->argv);
+	free_string_array(info->argv);
 	info->argv = NULL;
 	info->path = NULL;
 	if (abc)
@@ -63,7 +63,7 @@ void free_shell_info(shell_info *info, int abc)
 			free_list(&(info->history));
 		if (info->alias)
 			free_list(&(info->alias));
-		ffree(info->environ);
+		free_string_array(info->environ);
 			info->environ = NULL;
 		bfree((void **)info->cmd_buf);
 		if (info->readfd > 2)
