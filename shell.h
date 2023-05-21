@@ -208,7 +208,7 @@ void free_string_array(char **ptr);
 /** alias history biultin **/
 int show_history(shell_info *info);
 int remove_alias(shell_info *info, char *str);
-
+int create_alias(shell_info *info, char *str);
 
 
 /** history file **/
