@@ -52,3 +52,44 @@ int remove_alias(shell_info *info, char *str)
 	*ptr = saved_char;
 	return (ret);
 }
+
+
+/**
+ * create_alias - function sets an alias in the shell
+ *
+ * @info: A pointer to a shell_info structure
+ * @str: a pointer to a string
+ *
+ * Return: 0 on success, otherwise 1 on error
+ */
+
+int create_alias(shell_info *info, char *str)
+{
+	char *ptr; /* a pointer to a character */
+	int i = 0;
+	int is_null;
+
+	while (str[i] != '\0')
+	{
+		if (str[i] == '=')
+		{
+			ptr = &str[i];
+			break;
+		}
+		i++;
+	}
+
+	if (str[i] == '\0')
+	{
+		return (1);
+	}
+	if (!*++ptr)
+	{
+		return (remove_alias(info, str));
+	}
+	remove_alias(info, str);
+
+	is_null = (add_node_end(&(info->alias), str, 0) == NULL);
+	return (is_null);
+}
+
