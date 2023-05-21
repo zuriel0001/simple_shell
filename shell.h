@@ -40,12 +40,14 @@ extern char **environ;
  * @str: string
  * @next: point to the next node
  */
+
 typedef struct list_str
 {
 	int num;
 	char *str;
 	struct list_str *next;
 } list_t;
+
 
 /**
  * struct pass_info - struct that contains pseudo arguments to
@@ -205,6 +207,9 @@ void free_string_array(char **ptr);
 
 /** alias history biultin **/
 int show_history(shell_info *info);
+int remove_alias(shell_info *info, char *str);
+
+
 
 /** history file **/
 int recode_history(shell_info *info);
