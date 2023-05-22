@@ -224,6 +224,8 @@ int show_history(shell_info *info);
 int remove_alias(shell_info *info, char *str);
 int create_alias(shell_info *info, char *str);
 int print_alias(list_t *node);
+int my_alias(shell_info *info);
+
 
 /** history file **/
 int recode_history(shell_info *info);
