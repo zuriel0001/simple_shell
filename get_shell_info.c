@@ -24,7 +24,7 @@ void set_shell_info(shell_info *info, char **av)
 	info->fname = av[0];
 	if (info->arg)
 	{
-		info->argv = strtow(info->arg, " \t");
+		info->argv = stringToWords(info->arg, " \t");
 		if (!info->argv)
 		{
 			info->argv = malloc(sizeof(char *) * 2);
@@ -34,8 +34,13 @@ void set_shell_info(shell_info *info, char **av)
 				info->argv[1] = NULL;
 			}
 		}
-		for (k = 0; info->argv && info->argv[k]; k++)
+		k = 0
+		while (info->argv && info->argv[k])
+			k++;
+		/**
+		 * for (k = 0; info->argv && info->argv[k]; k++)
 			;
+		*/
 		info->argc = k;
 
 		substitute_alias(info);

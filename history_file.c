@@ -33,11 +33,15 @@ int create_history_list(shell_info *info, char *buf, int linecount)
 	list_t *n = NULL;
 
 	if (info->history)
+	{
 		n = info->history;
+	}
 	add_node_end(&n, buf, linecount);
 
 	if (!info->history)
+	{
 		info->history = n;
+	}
 	return (0);
 }
 
