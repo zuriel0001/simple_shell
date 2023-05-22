@@ -93,3 +93,33 @@ int create_alias(shell_info *info, char *str)
 	return (is_null);
 }
 
+/**
+ * print_alias - a function that prints an alias string
+ *
+ * @node: pointer to a structure
+ *
+ * Return: 0 on success else 1 on error
+ */
+
+int print_alias(list_t *node)
+{
+	char *equal_sign_position = NULL;
+	char *current_char = NULL;
+
+	if (node)
+	{
+		equal_sign_position = _strchr(node->str, '=');
+		current_char = node->str;
+
+		while (current_char <= equal_sign_position)
+		{
+			_putchar(*current_char);
+			current_char++;
+		}
+		_putchar('\'');
+		_puts(equal_sign_position + 1);
+		_puts("'\n");
+		return (0);
+	}
+	return (1);
+}
