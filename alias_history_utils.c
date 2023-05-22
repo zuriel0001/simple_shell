@@ -141,7 +141,7 @@ int my_alias(shell_info *info)
 
 	if (info->argc == 1)
 	{
-		for (node = info->alias; node != NULL; node = node->next;)
+		for (node = info->alias; node != NULL; node = node->next)
 		{
 			print_alias(node);
 		}
