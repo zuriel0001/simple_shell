@@ -33,19 +33,6 @@
 #define CONVERT_TO_LOWERCASE	1
 #define CONVERT_TO_UNSIGNED	2
 
-/**
- * struct my_builtin - struct containing a builtin string
- * and related function
- * @type: builtin command flag
- * @func: the function
- */
-
-typedef struct my_builtin
-{
-	char *type;
-	int (*func)(shell_info *);
-} my_builtin_table;
-
 extern char **environ;
 
 /**
@@ -67,7 +54,7 @@ typedef struct list_str
  * struct pass_info - struct that contains pseudo arguments to
  * to pass into a function
  * @arg: arguments
- * argc: argument count
+ * @argc: argument count
  * @argv: array of strings
  * @path: string path for current command to follow
  * @line_count: error count
@@ -107,6 +94,20 @@ typedef struct pass_info
 	int readfd;
 	int histcount;
 } shell_info;
+
+
+/**
+ * struct my_builtin - struct containing a builtin string
+ * and related function
+ * @type: builtin command flag
+ * @func: the function
+ */
+
+typedef struct my_builtin
+{
+        char *type;
+        int (*func)(shell_info *);
+} my_builtin_table;
 
 
 /* buit_in_env */
