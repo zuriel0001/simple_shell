@@ -234,4 +234,10 @@ int create_history_list(shell_info *info, char *buf, int linecount);
 char *fetch_history_file(shell_info *info);
 int write_hist(shell_info *info);
 
+
+/*** shell loop **/
+int my_shell(shell_info *info, char **av);
+int discover_builtin(shell_info *info);
+void discover_cmd(shell_info *info);
+void fork_shell_cmd(shell_info *info);
 #endif
