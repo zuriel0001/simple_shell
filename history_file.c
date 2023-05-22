@@ -92,7 +92,7 @@ int read_hist(shell_info *info)
 }
 
 /**
- * fetch_history-file - function that gets the history file
+ * fetch_history_file - function that gets the history file
  * @info: the parameter structure
  *
  * Return: the string containg the hist file
@@ -115,3 +115,33 @@ char *fetch_history_file(shell_info *info)
 	_strcat(buf, HISTORY_FILE);
 	return (buf);
 }
+
+/**
+ * write_hist - function that creates a file
+ * @info: the parameter structure
+ *
+ * Return: 1 or -1
+ */
+int write_hist(shell_info *info)
+{
+	ssize_t file_d;
+	char *fname = fetch_history_file(info);
+	list_t *n = NULL;
+
+	if (!fname)
+		return (-1);
+
+	file_d = open(fname, O_CREAT | O_TRUNC | O_RDWR, 0644);
+	free(fname);
+	if (file_d == -1)
+		return (-1);
+	for (n = info->history; n; n = n->next)
+	{
+		put_sfd(n->str, file_d);
+		put_cfd('\n', file_d);
+	}
+	put_cfd(FLUSH_BUFFER, file_d);
+	close(file_d);
+	return (1);
+}
+
