@@ -219,5 +219,6 @@ int recode_history(shell_info *info);
 int read_hist(shell_info *info);
 int create_history_list(shell_info *info, char *buf, int linecount);
 char *fetch_history_file(shell_info *info);
+int write_hist(shell_info *info);
 
 #endif
