@@ -19,7 +19,7 @@ int my_shell(shell_info *info, char **av)
 			_puts("$ ");
 		putchar_error(FLUSH_BUFFER);
 		j = get_input(info);
-		if (j! = -1)
+		if (j != -1)
 		{
 			set_shell_info(info, av);
 			b_ret = discover_builtin(info);
@@ -52,21 +52,29 @@ int my_shell(shell_info *info, char **av)
 int discover_builtin(shell_info *info)
 {
 	int j, b_ret = -1;
-	builtin_table builtinb
+	my_builtin_table built_in_b[] = {
+		{"exit", exit_shell},
+		{"env", built_in_env},
+		{"help", helper},
+		{"history", show_history},
+		{"setenv", set_my_env_var},
+		{"unsetenv", unset_my_env_var},
+		{"cd", _cd},
+		{"alias", my_alias},
+		{NULL, NULL}
+	};
 
-
-
-
-
-
-
-
-
-
-
-
-
+	for (j = 0; built_in_b[j].type; j++)
+		if (_strcmp(info->argv[0], built_in_b[j].type) == 0)
+		{
+			info->line_count++;
+			b_ret = built_in_b[j].func(info);
+			break;
+		}
+	return (b_ret);
 }
+
+
 
 /**
  * discover_cmd - function that finds a command in path
@@ -85,8 +93,8 @@ void discover_cmd(shell_info *info)
 		info->line_count++;
 		info->linecount_flag = 0;
 	}
-	for (j = 0, m = 0; info->arg[j]; i++)
-		if(!is_delim(info->arg[j], "\t\n"))
+	for (j = 0, m = 0; info->arg[j]; j++)
+		if (!is_delim(info->arg[j], "\t\n"))
 			m++;
 	if (!m)
 		return;
@@ -118,7 +126,32 @@ void discover_cmd(shell_info *info)
  */
 void fork_shell_cmd(shell_info *info)
 {
-	pid_t 
+	pid_t child_pid;
 
-
-
+	child_pid = fork();
+	if (child_pid == -1)
+	{
+		perror("Error.");
+		return;
+	}
+	if (child_pid == 0)
+	{
+		if (execve(info->path, info->argv, fetch_environ(info)) == -1)
+		{
+			free_shell_info(info, 1);
+			if (errno == EACCES)
+				exit(126);
+			exit(1);
+		}
+	}
+	else
+	{
+		wait(&(info->status));
+		if (WIFEXITED(info->status))
+		{
+			info->status = WEXITSTATUS(info->status);
+			if (info->status == 126)
+				print_error(info, "Permission denied\n");
+		}
+	}
+}
