@@ -13,8 +13,10 @@
  * Return: Always returns 0.
  */
 
-int helper(shell_info __attribute__((unused)) *info)
+int helper(shell_info *info)
 {
+	UNUSED(info);
+
 	_puts("Shell Commands:\n");
 	_puts("  help     - Display this help information.\n");
 	_puts("  cd       - Change the current working directory.\n");
