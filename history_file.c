@@ -90,3 +90,28 @@ int read_hist(shell_info *info)
 	recode_history(info);
 	return (info->histcount);
 }
+
+/**
+ * fetch_history-file - function that gets the history file
+ * @info: the parameter structure
+ *
+ * Return: the string containg the hist file
+ */
+char *fetch_history_file(shell_info *info)
+{
+
+	char *buf;
+	char *d;
+
+	d = get_env_var(info, "HOME=");
+	if (!d)
+		return (NULL);
+	buf = malloc(sizeof(char) * (_strlen(d) + _strlen(HISTORY_FILE) + 2));
+	if (!buf)
+		return (NULL);
+	buf[0] = 0;
+	_strcpy(buf, d);
+	_strcat(buf, "/");
+	_strcat(buf, HISTORY_FILE);
+	return (buf);
+}
