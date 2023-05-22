@@ -14,6 +14,7 @@
 
 #define HISTORY_FILE  ".simple_shell_history"
 #define HISTORY_MAX   4096
+
 #define UNUSED(x) (void)(x)
 
 #define BUFFER_SIZE 1024
@@ -215,5 +216,7 @@ int create_alias(shell_info *info, char *str);
 
 /** history file **/
 int recode_history(shell_info *info);
+int read_hist(shell_info *info);
+int create_history_list(shell_info *info, char *buf, int linecount);
 
 #endif

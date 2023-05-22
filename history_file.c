@@ -3,7 +3,7 @@
 /**
  * recode_history - function that recodes the history linked list
  * after changes have been made
- * @infor: potential aarguments of the structure
+ * @info: potential aarguments of the structure
  *
  * Return: the history count
  */
@@ -74,7 +74,6 @@ int read_hist(shell_info *info)
 	if (readlength <= 0)
 		return (free(buf), 0);
 	close(f);
-
 	for (j = 0; j < fs; j++)
 		if (buf[j] == '\n')
 		{
@@ -85,8 +84,8 @@ int read_hist(shell_info *info)
 	if (la != j)
 		create_history_list(info, buf + la, linecount++);
 	free(buf);
-	info->histcount linecount;
-	while (info->histcount-- >= HIST_MAX)
+	info->histcount = linecount;
+	while (info->histcount-- >= HISTORY_MAX)
 		remove_node_at_idx(&(info->history), 0);
 	recode_history(info);
 	return (info->histcount);
