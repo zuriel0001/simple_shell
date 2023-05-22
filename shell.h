@@ -243,6 +243,7 @@ int discover_builtin(shell_info *info);
 void discover_cmd(shell_info *info);
 void fork_shell_cmd(shell_info *info);
 
-
+/** string tokenizer **/
+char **stringToWords(char *str, char *d_str);
 
 #endif
