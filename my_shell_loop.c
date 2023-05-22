@@ -53,3 +53,72 @@ int discover_builtin(shell_info *info)
 {
 	int j, b_ret = -1;
 	builtin_table builtinb
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+/**
+ * discover_cmd - function that finds a command in path
+ * @info: the structure parameter
+ *
+ * Return: void
+ */
+void discover_cmd(shell_info *info)
+{
+	char *path = NULL;
+	int j, m;
+
+	info->path = info->argv[0];
+	if (info->linecount_flag == 1)
+	{
+		info->line_count++;
+		info->linecount_flag = 0;
+	}
+	for (j = 0, m = 0; info->arg[j]; i++)
+		if(!is_delim(info->arg[j], "\t\n"))
+			m++;
+	if (!m)
+		return;
+	path = path_finder(info, get_env_var(info, "PATH="), info->argv[0]);
+	if (path)
+	{
+		info->path = path;
+		fork_shell_cmd(info);
+	}
+	else
+	{
+		if ((interactive_mode(info) || get_env_var(info, "PATH=")
+					|| info->argv[0][0] == '/')
+				&& is_regular_file(info, info->argv[0]))
+			fork_shell_cmd(info);
+		else if (*(info->arg) != '\n')
+		{
+			info->status = 127;
+			print_error(info, "not found\n");
+		}
+	}
+}
+
+/**
+ * fork_shell_cmd - function that forks an executable thread to run cmd
+ * @info: the structre parameter
+ *
+ * Return: void
+ */
+void fork_shell_cmd(shell_info *info)
+{
+	pid_t 
+
+
+
