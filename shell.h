@@ -1,5 +1,5 @@
-#ifndef SHELL_H
-#define SHELL_H
+#ifndef _SHELL_H
+#define _SHELL_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -39,6 +39,7 @@
  * @type: builtin command flag
  * @func: the function
  */
+
 typedef struct my_builtin
 {
 	char *type;
@@ -222,7 +223,7 @@ void free_string_array(char **ptr);
 int show_history(shell_info *info);
 int remove_alias(shell_info *info, char *str);
 int create_alias(shell_info *info, char *str);
-
+int print_alias(list_t *node);
 
 /** history file **/
 int recode_history(shell_info *info);
