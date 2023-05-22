@@ -33,7 +33,17 @@
 #define CONVERT_TO_LOWERCASE	1
 #define CONVERT_TO_UNSIGNED	2
 
-
+/**
+ * struct my_builtin - struct containing a builtin string
+ * and related function
+ * @type: builtin command flag
+ * @func: the function
+ */
+typedef struct my_builtin
+{
+	char *type;
+	int (*func)(shell_info *);
+} my_builtin_table;
 
 extern char **environ;
 
