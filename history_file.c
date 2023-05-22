@@ -19,3 +19,24 @@ int recode_history(shell_info *info)
 	}
 	return (info->histcount = j);
 }
+
+/**
+ * create_history_list - attach an entry to a history linked list
+ * @info: structure of potential args
+ * @buf: the buffer
+ * @linecount: history linecount
+ *
+ * Return: 0
+ */
+int create_history_list(shell_info *info, char *buf, int linecount)
+{
+	list_t *n = NULL;
+
+	if (info->history)
+		n = info->history;
+	add_node_end(&n, buf, linecount);
+
+	if (!info->history)
+		info->history = n;
+	return (0);
+}
