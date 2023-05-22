@@ -123,3 +123,42 @@ int print_alias(list_t *node)
 	}
 	return (1);
 }
+
+
+/**
+ * my_alias - function that creates an alias for a command
+ *
+ * @info: pointer to shell_info struct
+ *
+ * Return: 0 on success, -1 on failure
+ */
+
+int my_alias(shell_info *info)
+{
+	list_t *node = NULL;
+	int i = 0;
+	char *equal_sign_position = NULL;
+
+	if (info->argc == 1)
+	{
+		for (node = info->alias; node != NULL; node = node->next;)
+		{
+			print_alias(node);
+		}
+		return (0);
+	}
+
+	for (i = 1; info->argv[i]; i++)
+	{
+		equal_sign_position = _strchr(info->argv[i], '=');
+		if (equal_sign_position)
+		{
+			create_alias(info, info->argv[i]);
+		}
+		else
+			print_alias(start_node_with(info->alias, info->argv[i], '='));
+	}
+
+	return (0);
+}
+
