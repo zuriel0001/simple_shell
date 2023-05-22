@@ -83,3 +83,23 @@ void free_string_array(char **ptr)
 	}
 	free(arr);
 }
+
+/**
+ * buf_free - frees a pointer and sets it to NULL
+ * @ptr: pointer to free
+ *
+ * Return: 1 if pointer was freed, 0 otherwise
+ */
+
+int buf_free(void **ptr)
+{
+	if (!ptr || !*ptr)
+	{
+		return (0);
+	}
+
+	free(*ptr);
+	*ptr = NULL;
+
+	return (1);
+}
