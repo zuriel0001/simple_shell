@@ -12,6 +12,8 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+#define HISTORY_FILE  ".simple_shell_history"
+#define HISTORY_MAX   4096
 #define UNUSED(x) (void)(x)
 
 #define BUFFER_SIZE 1024
