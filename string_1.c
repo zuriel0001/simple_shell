@@ -9,20 +9,23 @@
  */
 char *_strcat(char *dest, char *src)
 {
-    char *new_str = malloc(_strlen(dest) + _strlen(src) + 1);
-    char *p = new_str;
+	char *new_str;
+	char *p;
 
-    while (*dest) {
-        *p++ = *dest++;
-    }
+	new_str = malloc(_strlen(dest) + _strlen(src) + 1);
+	while (*dest)
+	{
+		*p++ = *dest++;
+	}
 
-    while (*src) {
-        *p++ = *src++;
-    }
+	p = new_str;
+	while (*src)
+	{
+		*p++ = *src++;
+	}
+	*p = '\0';
 
-    *p = '\0';
-
-    return new_str;
+	return (new_str);
 }
 
 
