@@ -9,15 +9,22 @@
  */
 char *_strcat(char *dest, char *src)
 {
-	char *k = dest;
+    char *new_str = malloc(_strlen(dest) + _strlen(src) + 1);
+    char *p = new_str;
 
-	while (*dest)
-		dest++;
-	while (*src)
-		*dest++ = *src++;
-	*dest = *src;
-	return (k);
+    while (*dest) {
+        *p++ = *dest++;
+    }
+
+    while (*src) {
+        *p++ = *src++;
+    }
+
+    *p = '\0';
+
+    return new_str;
 }
+
 
 /**
  * start_hays_need - function that checks if needle starts with
