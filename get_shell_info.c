@@ -34,13 +34,8 @@ void set_shell_info(shell_info *info, char **av)
 				info->argv[1] = NULL;
 			}
 		}
-		k = 0;
-		while (info->argv && info->argv[k])
-			k++;
-		/**
-		 * for (k = 0; info->argv && info->argv[k]; k++)
+		for (k = 0; info->argv && info->argv[k]; k++)
 			;
-		*/
 		info->argc = k;
 
 		substitute_alias(info);
