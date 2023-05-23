@@ -10,13 +10,13 @@
 
 int _cd(shell_info *info)
 {
-	char *str, *direct, buff[BUFFER_SIZE];
+	char *str, *direct, buff[1024];
 	int chdir_path;
 
 	str = getcwd(buff, 1024);
 	if (!str)
 	{
-		puts_error("TODO: >>getcwd failure emsg here<<\n");
+		_puts("TODO: >>getcwd failure emsg here<<\n");
 		return (1);
 	}
 	if (!info->argv[1])
@@ -31,11 +31,11 @@ int _cd(shell_info *info)
 	{
 		if (!get_env_var(info, "OLDPWD="))
 		{
-			puts(buff);
+			_puts(str);
 			_putchar('\n');
 			return (1);
 		}
-		puts_error(get_env_var(info, "OLDPWD=")), _putchar('\n');
+		_puts(get_env_var(info, "OLDPWD=")), _putchar('\n');
 		chdir_path = chdir((direct = get_env_var(info, "OLDPWD=")) ? direct : "/");
 	}
 	else
