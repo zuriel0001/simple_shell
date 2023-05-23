@@ -9,9 +9,10 @@
  */
 int my_shell(shell_info *info, char **av)
 {
-	ssize_t j = 0;
+	ssize_t j;
 	int b_ret = 0;
 
+	j = 0;
 	while (j != -1 && b_ret != -2)
 	{
 		clear_shell_info(info);
