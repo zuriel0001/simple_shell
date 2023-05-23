@@ -40,25 +40,16 @@ int is_regular_file(shell_info *info, char *path)
 char *get_sgmnt_without_colon(const char *inputString, int start, int end)
 {
 	static char buff[1024];
-	int i, j = 0;
+	int i = 0, j = 0;
 
-	/**
-	 * int length = stop - start;
-	char *buf = (char *)malloc((length + 1) * sizeof(char));
-
-	buf = (char *)malloc((length + 1) * sizeof(char));
-	*/
-
-	i = start;
-	while (i < end)
+	for (j = 0, i = start; i < end; i++)
 	{
 		if (inputString[i] != ':')
 		{
 			buff[j++] = inputString[i];
 		}
-		i++;
 	}
-	buff[j] = '\0';
+	buff[j] = 0;
 
 	return (buff);
 }
@@ -80,7 +71,7 @@ char *path_finder(shell_info *info, char *inputString, char *cmd)
 	int curr_i = 0;
 	char *path;
 
-	if (inputString == NULL)
+	if (!inputString)
 		return (NULL);
 
 	if ((_strlen(cmd) > 2) && start_hays_need(cmd, "./"))
@@ -94,17 +85,14 @@ char *path_finder(shell_info *info, char *inputString, char *cmd)
 		{
 			path = get_sgmnt_without_colon(inputString, curr_i, i);
 
-			_strcat(path + !!*path * _strlen(path), !*path ?
-					cmd : _strcat(path + _strlen(path), cmd) + 1);
-			/**
-			*if (!*path)
+			if (!*path)
 				_strcat(path, cmd);
 			else
 			{
 				_strcat(path, "/");
 				_strcat(path, cmd);
 			}
-			*/
+
 			if (is_regular_file(info, path))
 				return (path);
 			if (!inputString[i])

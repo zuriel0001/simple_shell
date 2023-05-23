@@ -42,12 +42,10 @@ int put_sfd(char *str, int fd)
 	if (!str)
 		return (0);
 
-	for (i = 0; str[i] != '\0'; i++)
+	while (*str)
 	{
-		if (put_cfd(str[i], fd) == -1)
-			return (-1);
+		i += put_cfd(*str++, fd);
 	}
-
 	return (i);
 }
 
