@@ -33,6 +33,11 @@
 #define CONVERT_TO_LOWERCASE	1
 #define CONVERT_TO_UNSIGNED	2
 
+/* 1 for system getline() */
+#define USE_GETLINE 0
+#define USE_STRTOK 0
+
+
 extern char **environ;
 
 /**
@@ -95,6 +100,10 @@ typedef struct pass_info
 	int histcount;
 } shell_info;
 
+
+#define INFO_INIT \
+{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
+		0, 0, 0}
 
 /**
  * struct my_builtin - struct containing a builtin string
@@ -245,5 +254,10 @@ void fork_shell_cmd(shell_info *info);
 
 /** string tokenizer **/
 char **stringToWords(char *str, char *d_str);
+
+
+/** main.c **/
+int main(int ac, char **av);
+
 
 #endif
