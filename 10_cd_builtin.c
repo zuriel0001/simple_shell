@@ -17,7 +17,6 @@ int _cd(shell_info *info)
 	if (!str)
 	{
 		_puts("TODO: >>getcwd failure emsg here<<\n");
-		return (1);
 	}
 	if (!info->argv[1])
 	{
