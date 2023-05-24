@@ -126,14 +126,14 @@ int print_alias(list_t *node)
 
 
 /**
- * my_alias - function that creates an alias for a command
+ * see__alias - function that creates an alias for a command
  *
  * @info: pointer to shell_info struct
  *
  * Return: 0 on success, -1 on failure
  */
 
-int my_alias(shell_info *info)
+int see_alias(shell_info *info)
 {
 	list_t *node = NULL;
 	int i = 0;
