@@ -50,41 +50,37 @@ int putchar_error(char c)
  * atoi_overflow - a function that  converts a string to an integer
  * checks for errors and  prints a message to standard error output about it
  *
- * @s: the string to be converted to integer
+ * @str: the string to be converted to integer
  *
  * Return: The converted integer if successful, or -1 if there was an error.
  */
 
-int atoi_overflow(char *s)
+int atoi_overflow(char *str)
 {
 	int i;
-	unsigned long int convertedNumber;
+	unsigned long int result = 0;
 
-	if (*s == '+')
-		s++;
+	if (*str == '+')
+		str++;
 
-	i = 0;
-	convertedNumber = 0;
-
-	while (s[i] != '\0')
+	for (i = 0;  str[i] != '\0'; i++)
 	{
-		if (s[i] >= '0' && s[i] <= '9')
+		if (str[i] >= '0' && str[i] <= '9')
 		{
-			convertedNumber = (convertedNumber * 10);
-			convertedNumber += (s[i] - '0');
+			result *= 10;
+			result += (str[i] - '0');
 
-			if (convertedNumber > INT_MAX)
+			if (result > INT_MAX)
 				return (-1);
 		}
 		else
 		{
 			return (-1);
 		}
-		i++;
 	}
-
-	return (convertedNumber);
+	return (result);
 }
+
 
 /**
  * print_error - function that prints an error message
