@@ -41,7 +41,8 @@ int remove_alias(shell_info *info, char *str)
 	saved_char = *ptr;
 	*ptr = '\0';
 
-	node_ind = fetch_node_idx(info->my_alias, start_node_with(info->my_alias, str, -1));
+	node_ind = fetch_node_idx(info->my_alias, start_node_with(info->my_alias,
+				str, -1));
 	ret = remove_node_at_idx(&(info->my_alias), node_ind);
 
 	/**
@@ -126,7 +127,7 @@ int print_alias(list_t *node)
 
 
 /**
- * see__alias - function that creates an alias for a command
+ * see_alias - function that creates an alias for a command
  *
  * @info: pointer to shell_info struct
  *
