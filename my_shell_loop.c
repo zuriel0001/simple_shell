@@ -95,7 +95,7 @@ void discover_cmd(shell_info *info)
 		info->linecount_flag = 0;
 	}
 	for (j = 0, m = 0; info->arg[j]; j++)
-		if (!is_delim(info->arg[j], "\t\n"))
+		if (!is_delim(info->arg[j], " \t\n"))
 			m++;
 	if (!m)
 		return;
@@ -142,7 +142,13 @@ void fork_shell_cmd(shell_info *info)
 			free_shell_info(info, 1);
 			if (errno == EACCES)
 				exit(126);
-			exit(1);
+			/*exit(1); reomoved by victus..trial */
+			else
+			{
+				/* 2 new lines below added by victus..trial */
+                		perror("Error executing command:");
+                		exit(1);
+			}
 		}
 	}
 	else
