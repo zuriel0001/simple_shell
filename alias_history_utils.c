@@ -41,8 +41,8 @@ int remove_alias(shell_info *info, char *str)
 	saved_char = *ptr;
 	*ptr = '\0';
 
-	node_ind = fetch_node_idx(info->alias, start_node_with(info->alias, str, -1));
-	ret = remove_node_at_idx(&(info->alias), node_ind);
+	node_ind = fetch_node_idx(info->my_alias, start_node_with(info->my_alias, str, -1));
+	ret = remove_node_at_idx(&(info->my_alias), node_ind);
 
 	/**
 	* ret = remove_node_at_idx(&(info->alias), fetch_node_idx(info->alias,
@@ -89,7 +89,7 @@ int create_alias(shell_info *info, char *str)
 	}
 	remove_alias(info, str);
 
-	is_null = (add_node_end(&(info->alias), str, 0) == NULL);
+	is_null = (add_node_end(&(info->my_alias), str, 0) == NULL);
 	return (is_null);
 }
 
@@ -156,7 +156,7 @@ int my_alias(shell_info *info)
 			create_alias(info, info->argv[i]);
 		}
 		else
-			print_alias(start_node_with(info->alias, info->argv[i], '='));
+			print_alias(start_node_with(info->my_alias, info->argv[i], '='));
 	}
 
 	return (0);
