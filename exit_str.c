@@ -34,7 +34,7 @@ char *_strncpy(char *dest, char *src, int n)
  * _strchr - function that locates a character in a string
  * @s: pointer to a string
  * @ch: the character to be searched for
- * Return: a pointer to the position of the character
+ * Return: a pointer to the position of the char
  */
 char *_strchr(char *s, char ch)
 {
