@@ -61,7 +61,7 @@ int discover_builtin(shell_info *info)
 		{"setenv", set_my_env_var},
 		{"unsetenv", unset_my_env_var},
 		{"cd", _cd},
-		{"alias", my_alias},
+		{"alias", see_alias},
 		{NULL, NULL}
 	};
 

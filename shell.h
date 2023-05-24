@@ -90,7 +90,7 @@ typedef struct pass_info
 	char *fname;
 	list_t *env;
 	list_t *history;
-	list_t *_alias;
+	list_t *my_alias;
 	char **environ;
 	int env_changed;
 	int status;
