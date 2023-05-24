@@ -11,16 +11,15 @@
 
 void erase_comments(char *buf)
 {
-	int index = 0;
+	int index;
 
-	while (buf[index] != '\0')
+	for (index = 0; buf[index] != '\0'; index++;)
 	{
 		if (buf[index] == '#' && (!index || buf[index - 1] == ' '))
 		{
 			buf[index] = '\0';
 			break;
 		}
-		index++;
 	}
 }
 
