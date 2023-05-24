@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * _cd - a function that changes the current directory of the process
+ * _cd - function that changes the current directory of the process
  *
  * @info: a pointer to a structure of type shell_info
  *
