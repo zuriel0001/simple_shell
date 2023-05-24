@@ -88,8 +88,8 @@ int read_hist(shell_info *info)
 	if (la != j)
 		create_history_list(info, buf + la, linecount++);
 	free(buf);
-	info->histcount = linecount;
-	while (info->histcount-- >= HISTORY_MAX)
+	info->history_count = linecount;
+	while (info->history_count-- >= HISTORY_MAX)
 		remove_node_at_idx(&(info->history), 0);
 	recode_history(info);
 	return (info->history_count);
