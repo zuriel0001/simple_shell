@@ -92,16 +92,16 @@ size_t list_length(const list_t *head)
  */
 size_t print_list_string(const list_t *head)
 {
-	size_t j = 0;
+	size_t m = 0;
 
 	while (head)
 	{
 		_puts(head->str ? head->str : "(nil)");
 		_puts("\n");
 		head = head->next;
-		j++;
+		m++;
 	}
-	return (j);
+	return (m);
 }
 
 /**
