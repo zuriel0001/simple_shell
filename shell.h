@@ -85,7 +85,7 @@ typedef struct pass_info
 	char *path;
 	int argc;
 	unsigned int line_count;
-	int err_num;
+	int error_numb;
 	int linecount_flag;
 	char *fname;
 	list_t *env;

@@ -25,10 +25,10 @@ int exit_shell(shell_info *info)
 			putchar_error('\n');
 			return (1);
 		}
-		info->err_num = atoi_overflow(info->argv[1]);
+		info->error_numb = atoi_overflow(info->argv[1]);
 		return (-2);
 	}
-	info->err_num = -1;
+	info->error_numb = -1;
 	return (-2);
 }
 

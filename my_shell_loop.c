@@ -37,9 +37,9 @@ int my_shell(shell_info *info, char **av)
 		exit(info->status);
 	if (b_ret == -2)
 	{
-		if (info->err_num == -1)
+		if (info->error_numb == -1)
 			exit(info->status);
-		exit(info->err_num);
+		exit(info->error_numb);
 	}
 	return (b_ret);
 }
