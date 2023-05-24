@@ -83,7 +83,7 @@ int atoi_overflow(char *str)
 
 
 /**
- * print_error - function that prints an error message
+ * print_error - a function that prints an error message
  *
  * @info: a pointer to a structure of type shell_info
  * @str_err: the string with specified error type
