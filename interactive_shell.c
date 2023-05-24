@@ -10,5 +10,5 @@
 
 int interactive_mode(shell_info *info)
 {
-	return (isatty(STDIN_FILENO) && info->readfd <= 2);
+	return (isatty(STDIN_FILENO) && info->read_file <= 2);
 }
