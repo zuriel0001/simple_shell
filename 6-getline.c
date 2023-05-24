@@ -66,7 +66,7 @@ ssize_t read_buffer(shell_info *info, char *buf, size_t *i)
 
 	if (*i)
 		return (0);
-	m = read(info->readfd, buf, READ_BUF_SIZE);
+	m = read(info->read_file, buf, READ_BUF_SIZE);
 	if (m >= 0)
 		*i = m;
 	return (m);
