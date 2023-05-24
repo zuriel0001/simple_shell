@@ -2,7 +2,6 @@
 
 /**
  * resize_mem - a function that resize a previously allocated block of memory
- *
  * @p_mem: pointer to previous allocated block or mem. using malloc
  * @old_size: bytes of previewsly allocated memory
  * @new_size: bytes of newly allocated memory
