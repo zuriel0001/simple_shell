@@ -4,7 +4,7 @@
  *  is_regular_file - function that determine whether a file is a regular file
  *  and is executable
  *
- *  @info: a pointer to a structure of type shell_info
+ *  @info: pointer to a structure of type shell_info
  *  @path: a pointer to path to the file
  *
  *  Return: 1 if true, otherwise 0
