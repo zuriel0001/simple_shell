@@ -62,7 +62,7 @@ void free_shell_info(shell_info *info, int abc)
 		if (info->history)
 			free_list(&(info->history));
 		if (info->my_alias)
-			free_list(&(info->alias));
+			free_list(&(info->my_alias));
 		free_string_array(info->environ);
 			info->environ = NULL;
 		buf_free((void **)info->cmd_buf);
