@@ -2,7 +2,7 @@
 
 /**
  * built_in_env - function that prints the curent environment
- * @info: structure of potential arguments
+ * @info: the structure of potential arguments
  *
  * Return: 0
  */
