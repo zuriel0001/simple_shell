@@ -146,8 +146,8 @@ void fork_shell_cmd(shell_info *info)
 			else
 			{
 				/* 2 new lines below added by victus..trial */
-                		perror("Error executing command:");
-                		exit(1);
+				perror("Error executing command:");
+				exit(1);
 			}
 		}
 	}
