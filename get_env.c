@@ -2,7 +2,7 @@
 
 /**
  * fetch_environ - functions that returns the string array of
- * an environ
+ * an environment
  * @info: potential argument of the structure
  *
  * Return: 0
