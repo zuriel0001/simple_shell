@@ -105,7 +105,7 @@ size_t print_list_string(const list_t *head)
 }
 
 /**
- * free_list - function that freesall the nodes of
+ * free_list - a function that freesall the nodes of
  * a list
  * @h_ptr: the address of the pointer to the  head node
  *
