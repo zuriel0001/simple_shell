@@ -61,7 +61,7 @@ void free_shell_info(shell_info *info, int abc)
 			free_list(&(info->env));
 		if (info->history)
 			free_list(&(info->history));
-		if (info->alias)
+		if (info->my_alias)
 			free_list(&(info->alias));
 		free_string_array(info->environ);
 			info->environ = NULL;
