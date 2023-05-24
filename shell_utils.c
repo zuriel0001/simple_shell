@@ -10,33 +10,35 @@
 
 int _atoi(char *s)
 {
-	int result = 0;
-	int digit, sign = 1;
+	int i, numSign = 1, flag = 0;
+	unsigned int result = 0;
+	int convertedNum;
 
-	while (*s != '\0')
+	for (i = 0; s[i] != '\0' && flag != 2; i++)
 	{
-		if (*s == '-')
-			sign = sign * -1;
+		if (s[i] == '-')
+			numSign *= -1;
 
-		if (*s >= '0' && *s <= '9')
+		if (s[i] >= '0' && s[i] <= '9')
 		{
-			digit = *s - '0';
-
-			/* overflow check */
-			if (result > INT_MAX / 10 ||
-				(result == INT_MAX / 10 && digit > INT_MAX % 10))
-			{
-				return (sign == 1 ? INT_MAX : INT_MIN);
-			}
-			result = result * 10 + digit;
+			flag = 1;
+			result *= 10;
+			result += (s[i] - '0');
 		}
-		if (result != 0 && (*s < '0' || *s > '9'))
-		break;
-
-		s++;
+		else if (flag == 1)
+			flag = 2;
 	}
-	return (result * sign);
+
+	if (numSign == -1)
+	{
+		convertedNum = -result;
+	}
+	else
+		convertedNum = result;
+
+	return (convertedNum);
 }
+
 
 /**
 * _isalpha - a function that checks for alphabetic characters
