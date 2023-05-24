@@ -17,7 +17,7 @@ int recode_history(shell_info *info)
 		n->num = j++;
 		n = n->next;
 	}
-	return (info->histcount = j);
+	return (info->history_count = j);
 }
 
 /**
@@ -92,7 +92,7 @@ int read_hist(shell_info *info)
 	while (info->histcount-- >= HISTORY_MAX)
 		remove_node_at_idx(&(info->history), 0);
 	recode_history(info);
-	return (info->histcount);
+	return (info->history_count);
 }
 
 /**

@@ -97,7 +97,7 @@ typedef struct pass_info
 	char **cmd_buf;
 	int cmd_buf_type;
 	int read_file;
-	int histcount;
+	int history_count;
 } shell_info;
 
 
