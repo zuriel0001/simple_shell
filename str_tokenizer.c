@@ -37,7 +37,7 @@ char **stringToWords(char *str, char *d_str)
 		while (!is_delim(str[i + n], d_str) && str[i + n])
 			n++;
 		arr_str[j] = malloc((n + 1) * sizeof(char));
-		if (arr_str[j] == 0)
+		if (!arr_str[j])
 		{
 			for (n = 0; n < j; n++)
 				free(arr_str[n]);
