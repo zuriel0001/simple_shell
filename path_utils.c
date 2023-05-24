@@ -13,18 +13,18 @@
 int is_regular_file(shell_info *info, char *path)
 {
 	struct stat file_info;
-	int result = 0;
 
 	UNUSED(info);
 
 	if (!path || stat(path, &file_info))
+		return (0);
+
+	if (file_info.st_mode & S_IFREG)
 	{
-		if (file_info.st_mode & S_IFREG)
-		{
-			result = 1;
-		}
+		return (1);
 	}
-	return (result);
+
+	return (0);
 }
 
 /**
