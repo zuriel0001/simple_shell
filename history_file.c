@@ -3,7 +3,7 @@
 /**
  * recode_history - function that recodes the history linked list
  * after changes have been made
- * @info: potential aarguments of the structure
+ * @info: potential arguments of the structure
  *
  * Return: the history count
  */
