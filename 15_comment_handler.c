@@ -13,7 +13,7 @@ void erase_comments(char *buf)
 {
 	int index;
 
-	for (index = 0; buf[index] != '\0'; index++;)
+	for (index = 0; buf[index] != '\0'; index++)
 	{
 		if (buf[index] == '#' && (!index || buf[index - 1] == ' '))
 		{
