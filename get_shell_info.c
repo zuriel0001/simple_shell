@@ -66,7 +66,7 @@ void free_shell_info(shell_info *info, int abc)
 		free_string_array(info->environ);
 			info->environ = NULL;
 		buf_free((void **)info->cmd_buf);
-		if (info->readfd > 2)
+		if (info->read_file > 2)
 			close(info->readfd);
 		_putchar(FLUSH_BUFFER);
 	}
