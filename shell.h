@@ -114,8 +114,8 @@ typedef struct pass_info
 
 typedef struct my_builtin
 {
-        char *type;
-        int (*func)(shell_info *);
+	char *type;
+	int (*func)(shell_info *);
 } my_builtin_table;
 
 
