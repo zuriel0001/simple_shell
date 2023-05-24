@@ -53,8 +53,8 @@ int unset_environ(shell_info *info, char *var)
 /**
  * set_environ - function that sets up a new environment variable
  * @info: potential arguments of structure
- * @var: string environment variable
- * @val: string environment value
+ * @var: the string environment variable
+ * @val: the string environment value
  *
  * Return: 0
  */
