@@ -23,7 +23,7 @@ char **fetch_environ(shell_info *info)
  * @info: potential arguments of the structure
  * @var: the string environment variable property
  *
- * Return: 1 or 0
+ * Return: returns 1 or 0
  */
 int unset_environ(shell_info *info, char *var)
 {
