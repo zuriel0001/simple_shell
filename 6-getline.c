@@ -3,7 +3,7 @@
 /**
  * get_line - function that gets the next line of input
  * from STDIN
- * @info: the parameter structure
+ * @info: the parameter struct
  * @ptr: the address of pointer to buffer
  * @len: size of ptr
  *
