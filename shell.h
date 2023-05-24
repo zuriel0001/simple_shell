@@ -94,6 +94,7 @@ typedef struct pass_info
 	char **environ;
 	int env_changed;
 	int status;
+
 	char **cmd_buf;
 	int cmd_buf_type;
 	int read_file;
