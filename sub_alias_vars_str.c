@@ -55,7 +55,7 @@ int substitute_alias(shell_info *info)
 
 	while (j < 10)
 	{
-		n = start_node_with(info->alias, info->argv[0], '=');
+		n = start_node_with(info->my_alias, info->argv[0], '=');
 		if (!n)
 			return (0);
 		free(info->argv[0]);
