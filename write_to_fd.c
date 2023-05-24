@@ -41,7 +41,7 @@ int put_sfd(char *str, int fd)
 
 	if (!str)
 		return (0);
-
+	i = 0;
 	while (*str)
 	{
 		i += put_cfd(*str++, fd);
