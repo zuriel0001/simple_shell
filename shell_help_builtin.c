@@ -18,7 +18,7 @@ int helper(shell_info *info)
 	char **arg_arr;
 
 	arg_arr = info->argv;
-	_puts("help call works. Function not yet implemented \n");
+	_puts("help implementation in process \n");
 
 	if (0)
 	{
