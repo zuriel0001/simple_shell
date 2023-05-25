@@ -108,7 +108,7 @@ char *convert_num(long int num, int base, int flags)
 	static char buf[50];
 	char numSign = 0;
 	unsigned long n = num;
-	int i = 0;
+	char *p;
 
 	if (!(flags & CONVERT_TO_UNSIGNED) && num < 0)
 	{
@@ -124,20 +124,20 @@ char *convert_num(long int num, int base, int flags)
 	{
 		arr = "0123456789ABCDEF";
 	}
-	*buf = '\0';
+	p = &buf[49];
+	*p = '\0';
 
 	while (n != 0)
 	{
-		buf[i] = arr[n % base];
+		--p;
+		*p = arr[n % base];
 		n /= base;
-		i++;
 	}
 
 	if (numSign)
 	{
-		buf[i] = numSign;
+		*--p = numSign;
 	}
-	buf[i + 1] = '\0';
-	return (buf);
+	return (p);
 }
 

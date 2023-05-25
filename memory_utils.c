@@ -12,7 +12,6 @@
 void *resize_mem(void *p_mem, unsigned int old_size, unsigned int new_size)
 {
 	char *ptr;
-	unsigned int i;
 
 	if (!p_mem)
 		return (malloc(new_size));
@@ -32,10 +31,8 @@ void *resize_mem(void *p_mem, unsigned int old_size, unsigned int new_size)
 	else
 		old_size = new_size;
 
-	for (i = 0; i < old_size; i++)
-	{
-		ptr[i] = ((char *)p_mem)[i];
-	}
+	while (old_size--)
+		ptr[old_size] = ((char *)p_mem)[old_size];
 
 	free(p_mem);
 	return (ptr);

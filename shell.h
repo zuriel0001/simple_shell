@@ -63,19 +63,19 @@ typedef struct list_str
  * @argv: array of strings
  * @path: string path for current command to follow
  * @line_count: error count
- * @err_num: error code for exit()s
+ * @error_numb: error code for exit()s
  * @linecount_flag: count line of inputs
  * @fname: file name of program
  * @env: copy of linked list local environ
  * @environ: modified copy of environ
  * @history: history node
- * @alias: alias node
+ * @my_alias: alias node
  * @env_changed: true if environ changes
  * @status: return status of the last executed command
  * @cmd_buf: address of pointer to cmd
  * @cmd_buf_type: cmd buff type
- * @readfd: fd to read line input
- * @histcount: history count
+ * @read_file: fd to read line input
+ * @history_count: history count
  *
  */
 typedef struct pass_info

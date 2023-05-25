@@ -12,13 +12,14 @@
 
 char **stringToWords(char *str, char *d_str)
 {
-	int i = 0, n = 0, word_count = 0, j, m;
+	int i, n, word_count = 0, j, m;
 	char **arr_str;
 
 	if (str == NULL || str[0] == 0)
 		return (NULL);
 	if (d_str == NULL)
 		d_str = " ";
+	i = 0;
 	while (str[i] != '\0')
 	{
 		if (!is_delim(str[i], d_str) && (is_delim(str[i + 1], d_str) || !str[i + 1]))
@@ -27,13 +28,14 @@ char **stringToWords(char *str, char *d_str)
 	}
 	if (word_count == 0)
 		return (NULL);
-	arr_str = malloc((word_count + 1) * sizeof(char *));
+	arr_str = malloc(sizeof(char *) * (word_count + 1));
 	if (!arr_str)
 		return (NULL);
 	for (i = 0, j = 0; j < word_count; j++)
 	{
 		while (is_delim(str[i], d_str))
 			i++;
+		n = 0;
 		while (!is_delim(str[i + n], d_str) && str[i + n])
 			n++;
 		arr_str[j] = malloc((n + 1) * sizeof(char));
